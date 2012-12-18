@@ -1,0 +1,25 @@
+%h1 Listing things
+
+%table
+  %tr
+    %th Name
+    %th User
+    %th Image url
+    %th Description
+    %th
+    %th
+    %th
+
+  - @things.each do |thing|
+    %tr
+      %td= thing.name
+      %td= thing.user
+      %td= thing.image_url
+      %td= thing.description
+      %td= link_to 'Show', thing
+      %td= link_to 'Edit', edit_thing_path(thing)
+      %td= link_to 'Destroy', thing, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Thing', new_thing_path
